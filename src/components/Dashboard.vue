@@ -99,7 +99,7 @@ export default {
       // this todo is a unfinished todo
       let argID = data.status === 'done'? data.id : null
       let body = {status: status, order:this.getOrder(status, argID)};
-      let res = await axios({
+      await axios({
         method:'put',
         url: url,
         data: body,

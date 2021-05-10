@@ -123,13 +123,12 @@
             'Content-Type': 'application/json',
           }
         })
-        const data = res.data
-        const message = data.message
         if (res.status === 200){
           this.isLogged = true
         }
       }
       catch(err){
+        console.log(err)
       }
     },
     ///SEO////
