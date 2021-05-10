@@ -97,7 +97,7 @@
         this.password = ''
       },
       getURL(){
-        const url = this.debug === true ? "http://localhost:3000/kratodo" : "https://api.ennes.dev/kratodo"
+        const url = this.debug === true ? `https://localhost:${process.env.LOCAL_PORT}/kratodo` : process.env.API_URL
         const axios = require('axios').default
 
         axios.defaults.baseURL = url
@@ -176,7 +176,7 @@
     }
   }
   
-  axios.defaults.baseURL = application.data().debug ? 'http://localhost:3000/kratodo' : 'https://api.ennes.dev/kratodo'
+  axios.defaults.baseURL = application.data().debug ? `http://localhost:${process.env.LOCAL_PORT}/kratodo` : process.env.API_URL
   export default application
 
 </script>
