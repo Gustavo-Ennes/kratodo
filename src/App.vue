@@ -8,7 +8,7 @@
     <main>
       <Dashboard 
       v-if='isLogged' 
-      :url='getURL()'
+      :url="'https://api.ennes.dev/kratodo'"
       :payload="userPayload"
       @logout="handleLogout"
       />
@@ -34,7 +34,6 @@
 
 <script>
 
-  import axios from 'axios'
   import 'bootstrap/dist/css/bootstrap.css'
   import 'bootstrap-vue/dist/bootstrap-vue.css'
 
@@ -96,13 +95,6 @@
         this.email = ''
         this.password = ''
       },
-      getURL(){
-        const url = this.debug === true ? `https://localhost:${process.env.LOCAL_PORT}/kratodo` : process.env.API_URL
-        const axios = require('axios').default
-
-        axios.defaults.baseURL = url
-        return url
-      }
     },
     async mounted(){
               
@@ -112,6 +104,8 @@
       try{
 
         const axios = require('axios').default
+
+        axios.defaults.baseURL = 'https://api.ennes.dev/kratodo'
         const res = await axios({
           method:'get',
           url:'todos',
@@ -174,8 +168,6 @@
       ]
     }
   }
-  
-  axios.defaults.baseURL = application.data().debug ? `http://localhost:${process.env.LOCAL_PORT}/kratodo` : process.env.API_URL
   export default application
 
 </script>

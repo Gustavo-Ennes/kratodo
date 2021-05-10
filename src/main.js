@@ -3,6 +3,8 @@ import App from './App.vue'
 import { BootstrapVue } from 'bootstrap-vue'
 import vueMeta from 'vue-meta'
 
+
+
 require('dotenv').config()
 
 Vue.config.productionTip = false
