@@ -9,7 +9,7 @@ import axios from 'axios'
 require('dotenv').config()
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://localhost:3000/kratodo'
+axios.defaults.baseURL = 'https://api.ennes.dev/kratodo'
 
 Vue.config.productionTip = false
 
