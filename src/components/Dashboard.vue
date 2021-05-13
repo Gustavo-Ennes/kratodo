@@ -133,10 +133,6 @@ export default {
         const res = await axios({
           method:'get',
           url:'todos/finished',
-          auth:{
-            username: this.payload.email,
-            password: this.payload.password
-          }
         })
         const data = res.data
         this.done = data.todos
@@ -150,10 +146,6 @@ export default {
         const res = await axios({
           method:'get',
           url:'todos/unfinished',
-          auth:{
-            username: this.payload.email,
-            password: this.payload.password
-          }
         })
         const data = res.data
         this.todos = data.todos;

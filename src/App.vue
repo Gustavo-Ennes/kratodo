@@ -48,7 +48,6 @@
     data(){
       return {
         debug: false,
-
         isLogged: false,
         email: '',
         password: '',
@@ -90,35 +89,29 @@
         this.email = payload.email
         this.password = payload.password
       },
-      handleLogout(){
+      async handleLogout(){
+        const axios = require('axios').default
+
         this.isLogged = false
         this.email = ''
         this.password = ''
+        
+        await axios({url:'/logout/', method: 'get'})
       },
     },
     async mounted(){
-              
-      // sending a request to get all todos
-      // if res === {"message":"User not authenticated"} the login component will appear, else the app
-
+            
       try{
 
         const axios = require('axios').default
 
-        axios.defaults.baseURL = 'https://api.ennes.dev/kratodo'
         const res = await axios({
           method:'get',
-          url:'todos',
-          auth:{
-            username: this.email,
-            password: this.password
-          },
-          headers:{
-            'Content-Type': 'application/json',
-          }
+          url:'/login/',
         })
         if (res.status === 200){
           this.isLogged = true
+          console.log(JSON.stringify(res))
         }
       }
       catch(err){

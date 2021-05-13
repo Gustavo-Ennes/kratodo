@@ -18,6 +18,8 @@
     "mongoose": "^5.11.17",
     "random-id": "^1.0.4",
     "vue": "^2.6.11",
+    "vue-axios": "^3.2.4",
+    "vue-cookies": "^1.7.4",
     "vue-meta": "^2.4.0",
     "vuedraggable": "^2.24.3"
   },

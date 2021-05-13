@@ -34,7 +34,7 @@
 
 <script>
 
-const axios = require('axios')
+const axios = require('axios').default
 const Animate = require('../utils/animate')
 
 export default {
@@ -83,6 +83,7 @@ export default {
 
         if(res.status === 200){
           await this.$emit('login', this.payload)
+          console.log(JSON.stringify(res))
         }
 
         this.clearForm()
