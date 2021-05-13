@@ -83,7 +83,6 @@ export default {
 
         if(res.status === 200){
           await this.$emit('login', this.payload)
-          console.log(JSON.stringify(res))
         }
 
         this.clearForm()
