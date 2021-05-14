@@ -17,7 +17,7 @@
 
             <b-overlay
               :show="loading"
-              spinner-variant="warning"
+              spinner-variant="success"
               spinner-type="grow"
               spinner-small
               rounded="sm"

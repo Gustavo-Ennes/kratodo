@@ -6,28 +6,36 @@
     </b-alert>
 
     <main>
-      <Dashboard 
-      v-if='isLogged' 
-      :url="'https://api.ennes.dev/kratodo'"
-      :payload="userPayload"
-      @logout="handleLogout"
-      />
-      <section v-else>
-        <NewUser
-        v-if="newUserPage"
-        @login="handleLogin"
-        @showAlert="handleShowAlert"
-        @back='handleBack'
+      <b-overlay
+      :show="isLoading"
+      spinner-variant="success"
+      spinner-type="grow"
+      spinner-small
+      rounded="sm"
+      >
+        <Dashboard 
+        v-if='isLogged' 
+        :url="'https://api.ennes.dev/kratodo'"
+        :payload="userPayload"
+        @logout="handleLogout"
         />
-        
-        <Login 
-        @login="handleLogin"
-        @logout="handleLogout" 
-        @newUserPage="newUserPageHandle"
-        v-else
-        />
-      </section>
-      <Footer />
+        <section v-else>
+          <NewUser
+          v-if="newUserPage"
+          @login="handleLogin"
+          @showAlert="handleShowAlert"
+          @back='handleBack'
+          />
+          
+          <Login 
+          @login="handleLogin"
+          @logout="handleLogout" 
+          @newUserPage="newUserPageHandle"
+          v-else
+          />
+        </section>
+        <Footer />
+      </b-overlay>
     </main>
   </div>
 </template>
@@ -49,6 +57,7 @@
       return {
         debug: false,
         isLogged: false,
+        isLoading: false,
         email: '',
         password: '',
         newUserPage: false,
@@ -99,8 +108,9 @@
         await axios({url:'/logout/', method: 'get'})
       },
     },
-    async mounted(){
-            
+    async mounted(){            
+      this.isLoading = true
+
       try{
 
         const axios = require('axios').default
@@ -111,12 +121,14 @@
         })
         if (res.status === 200){
           this.isLogged = true
-          console.log(JSON.stringify(res))
         }
+
       }
       catch(err){
         console.log(err)
       }
+      
+      this.isLoading = false
     },
     ///SEO////
     metaInfo: {

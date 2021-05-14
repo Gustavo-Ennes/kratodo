@@ -92,21 +92,16 @@ export default {
       let status = data.status === 'todo' ? 'done' : 'todo';
       this.numberOfTodos += status === 'done' ? -1 : 1
       this.numberOfFinishedTodos += status === 'done' ? 1 : -1
-      let url = `todos/${data.id}`;
 
       // the second arguement is this.getOrder() is the id
       // if I send null, getOrder() will understand that
       // this todo is a unfinished todo
       let argID = data.status === 'done'? data.id : null
-      let body = {status: status, order:this.getOrder(status, argID)};
+      let body = {id:data.id, status: status, order:this.getOrder(status, argID)};
       await axios({
         method:'put',
-        url: url,
+        url: '/todos/',
         data: body,
-        auth: {
-          username: this.payload.email,
-          password: this.payload.password
-        }
       })
 
       await this.fetchTodos();
@@ -170,10 +165,6 @@ export default {
         let res =  await axios({
           method:'delete',
           url: url,
-          auth:{
-            username: this.payload.email,
-            password: this.payload.password
-          },
           headers:{
             "Content-Type": "application/json"
           }
@@ -193,10 +184,6 @@ export default {
       await axios({
           method:'post',
           url:'todos',
-          auth:{
-            username: this.payload.email,
-            password: this.payload.password
-          },
           data: data
         })
       await this.fetchTodos();
@@ -241,10 +228,7 @@ export default {
       await axios({
         method:'put',
         url:url,
-        auth:{
-          username: this.payload.email,
-          password: this.payload.password
-        }
+        data: data,
       })
       this.fetchTodos();
       

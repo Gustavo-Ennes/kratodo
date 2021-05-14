@@ -89,17 +89,18 @@ export default {
     async submit(){
       this.loading = true
 
-      const axios = require('axios').default
+      const axios = require('axios')
+      require('dotenv').config()
 
       if(this.isValidated){
         try {
           let res = await axios({
             method: 'post',
             url: 'create-user',
-            auth: {
-              username: process.env.CREATOR_EMAIL,
-              password: process.env.CREATOR_PASSWORD
+            headers:{
+              "Content-Type": "application/json"
             },
+            withCredentials: false,
             data: this.payload
           })
           if(res.status === 201){

@@ -16,10 +16,15 @@
                 </div>
                 <input type="hidden" v-model="status" name="status" id="status" />
                 
-                <div v-if="isLoading" class="spinner-border text-success" role="status">
-                  <span class="sr-only"> Creating your todo...</span>
-                </div>
-                <button v-if="!isLoading" type="button" @click="createTodo" class="btn btn-danger">Create</button>
+                <button type="button" @click="createTodo" class="btn btn-success text-warning">
+                  <b-overlay
+                  id="overlay-background"
+                  :show='isLoading'
+                  rounded="sm"
+                  > 
+                  Create
+                  </b-overlay>
+                </button>
             </form>
         </div>
       </div>
