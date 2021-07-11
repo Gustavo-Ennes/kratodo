@@ -1,3 +1,28 @@
+html, body, #app, main{
+  height:100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.login input, .newUser input{
+  border-radius:8px !important; 
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: rgba(255, 255, 219, 0.836) !important;
+  outline-color: rgba(255, 255,255, 0.2) !important;
+}
+.login input:focus,.newUser input:focus{
+  border-radius:8px !important; 
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: rgba(255, 255, 219, 0.836) !important;
+  box-shadow: none !important;
+  border-color: rgba(255, 255,255, 0.5) !important;
+  box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.5) !important;
+}
+
+
+
+
+
 .header {
     padding: 2%;
     background-color: #59981A;
@@ -63,9 +88,11 @@ h2, label, th{
 
 .display-board {
     width: 100%;
-    background-color:#59981A;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.3);
     color: #ECF87F;
-    padding: 5%;
+    padding: 2.5% !important;
 }
 
 .number {
@@ -77,4 +104,6 @@ h2, label, th{
 .border-effect{
   border-bottom-left-radius: 55px;
   border-top-right-radius: 55px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }

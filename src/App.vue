@@ -7,34 +7,45 @@
 
     <main>
       <b-overlay
+      class='overlay'
       :show="isLoading"
       spinner-variant="success"
       spinner-type="grow"
       spinner-small
       rounded="sm"
       >
-        <Dashboard 
-        v-if='isLogged' 
-        :url="'https://api.ennes.dev/kratodo'"
-        :payload="userPayload"
-        @logout="handleLogout"
-        />
-        <section v-else>
-          <NewUser
-          v-if="newUserPage"
-          @login="handleLogin"
-          @showAlert="handleShowAlert"
-          @back='handleBack'
-          />
-          
-          <Login 
-          @login="handleLogin"
-          @logout="handleLogout" 
-          @newUserPage="newUserPageHandle"
-          v-else
-          />
-        </section>
-        <Footer />
+        <b-row class='h-100'>
+          <b-col cols='12' v-if='isLogged' align-self='stretch'>
+            <Dashboard 
+            :url="'https://api.ennes.dev/kratodo'"
+            :payload="userPayload"
+            @logout="handleLogout"
+            />
+            </b-col>
+            <b-col cols='12' align-self="stretch"  v-else>
+              <section class='loginSession h-100'>
+                <b-row class='h-100'>
+                  <b-col align-self='stretch' v-if="newUserPage">
+                    <NewUser
+                    @login="handleLogin"
+                    @showAlert="handleShowAlert"
+                    @back='handleBack'
+                    />
+                  </b-col>
+                  <b-col align-self='stretch' v-else>          
+                    <Login 
+                    @login="handleLogin"
+                    @logout="handleLogout" 
+                    @newUserPage="newUserPageHandle"
+                    />
+                  </b-col>
+                </b-row>
+              </section>
+            </b-col>
+            <b-col cols='12' align-self='stretch' class='vh-75'>
+              <Footer />
+            </b-col>
+          </b-row>
       </b-overlay>
     </main>
   </div>
@@ -178,5 +189,8 @@
 </script>
 
 <style scoped>
-  @import "./assets/styles/global.css";  
+  @import "./assets/styles/global.css"; 
+  .overlay{
+    height: 100%;
+  }
 </style>

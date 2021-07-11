@@ -9,17 +9,17 @@
 
       </b-col>
       <b-col cols='12' class='titleFont text-center'>
-        <h1 class='display-3 my-5 newUserTitle text-warning'>new user</h1>
+        <h1 class='display-3 my-5 newUserTitle text-light'>new user</h1>
       </b-col>
       <b-col cols='12'>
         <section class='m-3 newUser'>
-          <main :class="{'w-100': isMobile}" class='display-board border-effect mx-auto text-center main w-50 p-4'>
-            <label for='formName' class='text-left text-warning'>Your name</label>
+          <form :class="{'w-100': isMobile}" class='text-light display-board border-effect mx-auto text-center main w-50 p-4'>
+            <label for='formName' class='text-light'>Your name</label>
             <b-input id='formName' v-model='name' type='text' class='form-control mb-3' placeholder="your name" />
-            <label for='formName' class='text-warning text-left'>Your e-mail</label>
-            <b-input v-model='email' type='text' class='form-control' placeholder="e-mail" />
-            <label for='formName' class='text-warning text-left'>Password</label>
-            <b-input v-model='password1' type='password' class='form-control mt-3 text-warning' placeholder='Password' />
+            <label for='formMail' class='text-light'>Your e-mail</label>
+            <b-input id='formMail' v-model='email' type='text' class='form-control' placeholder="e-mail" />
+            <label for='formPass' class='mt-3 text-light'>Password</label>
+            <b-input id='formPass' v-model='password1' type='password' class='form-control text-warning' placeholder='Password' />
             <b-input v-model='password2' type='password' class='form-control mt-2 mb-4 text-warning' placeholder='Type password one more time'/>
             <b-overlay
               :show="loading"
@@ -30,14 +30,14 @@
             >
               <b-row>
                 <b-col cols='6'>
-                  <b-btn variant='light' class='text-warning' @click='$emit("back")'>Back</b-btn>
+                  <b-btn variant='dark' @click='$emit("back")'>Back</b-btn>
                 </b-col>
                 <b-col cols='6'>
-                 <b-btn variant='light' class='text-warning' @click='submit' :disabled='!isValidated'>Create</b-btn>
+                 <b-btn variant='dark' @click='submit' :disabled='!isValidated'>Create</b-btn>
                 </b-col>
               </b-row>
             </b-overlay>
-          </main>
+          </form>
         </section>
       </b-col>
     </b-row>
@@ -150,7 +150,6 @@ export default {
   .main{
     margin-top: 10%;
     margin-bottom: 20%;
-    background-color:teal !important;
   }
   .titleFont{
     font-family: 'Fredoka One', cursive;
@@ -158,15 +157,19 @@ export default {
     color: #fff;
   }
   .wrapper{
-    background: url(https://ksr-ugc.imgix.net/assets/017/754/999/d9bc3790556b7bae2c0352834c0f5b44_original.jpg?crop=faces&w=1552&h=873&fit=crop&v=1501706488&auto=format&q=92&s=3513fde78d45acbc5a1b8843ae10e9d1) center no-repeat;
+    background: #ddd url(https://ksr-ugc.imgix.net/assets/017/754/999/d9bc3790556b7bae2c0352834c0f5b44_original.jpg?crop=faces&w=1552&h=873&fit=crop&v=1501706488&auto=format&q=92&s=3513fde78d45acbc5a1b8843ae10e9d1) center no-repeat;
     background-position: cover;
     background-size: 100% 100%;
-    height: 100%;
+    height: 100% !important;
     width: 100% !important;
     margin-bottom: 0px !important;
   }
   .layer{
     background-color: rgba(222, 222, 0, 0.2);
+  }
+
+  .label{
+    color:#eee !important;
   }
 
 </style>

@@ -1,34 +1,39 @@
 <template>
-  <div class='container-fluid wrapper'>
-    <b-row align-h='center' align-v='center' class='layer'>
-      <b-col cols='12'>
-        <b-alert class='text-right text-danger' :show="showAlert" variant="success" @dismissed="showAlert = false" dismissible>
-          {{alertMessage}}
-        </b-alert>
-      </b-col>
-      <b-col cols='12' class='titleFont text-center'>
-        <h1 class='display-3 my-5 loginTitle'>KRA-TODO</h1>
-      </b-col>
-      <b-col cols='12'>
-        <section class='m-3 login'>
-          <main :class="{'w-100': isMobile}" class='display-board border-effect mx-auto text-center main w-50 p-4'>
-            <b-input :trim='true' v-model='email' :type="'text'" :placeholder="'e-mail'" :autocomplete="'off'"></b-input>
-            <b-input :trim='true' v-model='password' :type="'password'" class='mt-3 mb-4' placeholder='Password'></b-input>
+  <div class='wrapper vh-100'>
+    <div>
+      <b-row align-h='center' align-v='center'>
+        <b-col cols='12'>
+          <b-alert class='text-right text-danger' :show="showAlert" variant="success" @dismissed="showAlert = false" dismissible>
+            {{alertMessage}}
+          </b-alert>
+        </b-col>
+        <b-col cols='12' class='titleFont text-center'>
+          <h1 class='display-4 my-5 loginTitle'>KRA-TODO</h1>
+        </b-col>
+        <b-col cols='12' align-self="center">
+          <section class='login m-3'>
+            <form :class="{'w-100': isMobile}" class='display-board border-effect mx-auto  my-auto text-center main w-50 p-4'>
 
-            <b-overlay
-              :show="loading"
-              spinner-variant="success"
-              spinner-type="grow"
-              spinner-small
-              rounded="sm"
-            >
-              <b-btn variant='light' @click='submit' :disabled='!isValidated'>Log In</b-btn>
-            </b-overlay>
-            <b-btn variant='light' class='mt-2' @click="$emit('newUserPage', true)">Sign In</b-btn>
-          </main>
-        </section>
-      </b-col>
-    </b-row>
+              <label for="inputMail" class='text-light'>E-mail</label>
+              <b-input id='inputMail' :trim='true' v-model='email' :type="'text'" :placeholder="'e-mail'" :autocomplete="'off'"></b-input>
+              <label for="inputMail" class='text-light mt-3'>Password</label>
+              <b-input id='inputPass' :trim='true' v-model='password' :type="'password'" class='mb-4' placeholder='Password'></b-input>
+
+              <b-overlay
+                :show="loading"
+                spinner-variant="success"
+                spinner-type="grow"
+                spinner-small
+                rounded="sm"
+              >
+                <b-btn variant='dark' @click='submit' :disabled='!isValidated'>Log In</b-btn>
+              </b-overlay>
+              <b-btn variant='dark' class='mt-2' @click="$emit('newUserPage', true)">Sign In</b-btn>
+            </form>
+          </section>
+        </b-col>
+      </b-row>
+    </div>
   </div>
 </template>
 
@@ -100,6 +105,8 @@ export default {
   async mounted(){    
     await Animate('.loginTitle', 'zoomInDown', '2', '0.2')
     await Animate('.login', 'flipInX', '2.2', '1.2')
+    const m = document.querySelector('.main')
+    m.style.setProperty('min-height', window.innerHeight)
   }
 }
 </script>
@@ -108,25 +115,33 @@ export default {
 
   @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
-  .main{
+  main{
     margin-top: 10%;
     margin-bottom: 20%;
   }
   .titleFont{
     font-family: 'Fredoka One', cursive;
-    text-shadow: 6px 6px 3px #59981A;
-    color: #fff;
+    text-shadow: 3px 2px 3px #000a02f5;
+    color: #72BC5C ;
   }
   .wrapper{
-    background: url(https://ksr-ugc.imgix.net/assets/017/754/999/d9bc3790556b7bae2c0352834c0f5b44_original.jpg?crop=faces&w=1552&h=873&fit=crop&v=1501706488&auto=format&q=92&s=3513fde78d45acbc5a1b8843ae10e9d1) center no-repeat;
-    background-position: cover;
+    background: #72BC5C url(https://ksr-ugc.imgix.net/assets/017/754/999/d9bc3790556b7bae2c0352834c0f5b44_original.jpg?crop=faces&w=1552&h=873&fit=crop&v=1501706488&auto=format&q=92&s=3513fde78d45acbc5a1b8843ae10e9d1) center no-repeat;
+    object-fit: cover;
+    position:relative;
     background-size: 100% 100%;
     height: 100%;
-    margin-bottom: 0px !important;
+    margin-bottom: 0;
     width: 100%;
+
   }
   .layer{
     background-color: rgba(222, 222, 0, 0.5);
+    height:100%;
+    width:100%;
+  }
+
+  .login{
+    margin-top:30%;
   }
 
 </style>
