@@ -1,5 +1,5 @@
 <template>
-    <div class='footer mt-0 w-100'>
+    <div class='footer mt-0'>
         <div class="row justify-content-center align-items-bottom">
             <div class='col-6'>
                 <div class='row justify-content-center align-items-between'>

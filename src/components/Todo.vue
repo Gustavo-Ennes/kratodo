@@ -8,7 +8,7 @@
             <div class='row'>
                 <div class='col-12 col-sm-4 col-lg-2'>
                     <div>
-                        <i class="far fa-thumbs-up text-secondary" v-if="!isDone()" @click="$emit('markAsDone', doneData())" data-bs-toggle="tooltip" data-bs-placement="top" title="Mark as done!"></i>
+                        <i class="far fa-thumbs-up text-success" v-if="!isDone()" @click="$emit('markAsDone', doneData())" data-bs-toggle="tooltip" data-bs-placement="top" title="Mark as done!"></i>
                         <i class="fas fa-trash-restore text-warning" v-if="isDone()" @click="$emit('markAsDone', doneData())" data-bs-toggle="tooltip" data-bs-placement="top" title="If you want to undone..."></i>
                     </div>
                 </div>
@@ -123,5 +123,6 @@ export default {
     }
     .todo-wrapper{
         cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.1);
     }
 </style>

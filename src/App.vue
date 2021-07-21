@@ -1,8 +1,8 @@
 <template>
-  <div isdd="app">
+  <div class='position-relative'>
 
     <!-- absolute div to hold three.js animation -->
-    <div class='threejs w-0 h-0'></div>
+    <div class='threejs'></div>
 
 
 
@@ -20,7 +20,7 @@
       rounded="sm"
       bg-color='transparent'
       >
-        <b-row class='h-100'>
+        <b-row>
           <b-col cols='12' v-if='isLogged' align-self='stretch'>
             <Dashboard 
             :url="'https://api.ennes.dev/kratodo'"

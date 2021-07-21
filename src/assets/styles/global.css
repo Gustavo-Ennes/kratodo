@@ -1,7 +1,8 @@
-html, body, #app, main{
-  height:100%;
-  width: 100%;
+body, #app, main{
+  padding:0;
+  margin:0;
   overflow-x: hidden;
+  position: relative;
 }
 
 .login input, .newUser input{
@@ -25,12 +26,12 @@ html, body, #app, main{
 
 .header {
     padding: 2%;
-    background-color: #59981A;
+    background-color: rgba(89, 152, 26, 0.4);
     text-align: center;
     width: 100%;
     color: #ECF87F;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    /* border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px; */
     text-shadow: 1px 1px 2px #ECF87F ;
  }
  p, label, h1, h2, h3, h4, h5, small, a{
@@ -56,17 +57,17 @@ html, body, #app, main{
 
  .border{
    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.1);
-   border-radius: 10px;
-   border:0;
+   background-color: rgba(255,255,255,0.3);
  }
  
  .footer {
-    margin-top: 50px;
     padding: 2%;
-    background-color: #59981A;
+    position:relative;
     font-size: 15px;
     text-align: center;
-    width: 100%;
+    width: 100% !important;
+    background-color:rgba(89, 152, 26, 0.4);
+    height: 100% !important;
     color:#ECF87F;
  }
  
@@ -87,12 +88,12 @@ h2, label, th{
 }
 
 .display-board {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.3);
-    color: #ECF87F;
-    padding: 2.5% !important;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.3);
+  color: #ECF87F;
+  padding: 2.5% !important;
 }
 
 .number {
@@ -106,7 +107,6 @@ h2, label, th{
   z-index:1 !important;
   width: 100% !important;
   height: 100% !important;
-  background-color: rgba(255 ,0, 0, 0.4) !important;
 }
 
 .loginSession{
