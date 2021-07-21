@@ -9,11 +9,11 @@
     <div class="mt-4 my-3">
       <div class="row">
         <div class='col-6 '>
-          <small class='email'>{{ payload.email }}</small>
+          <small class='email text-light'>{{ payload.email }}</small>
         </div>
         <div class='col-6 text-right'>
           <b-button variant='ligth' @click="$emit('logout')">
-            <small>log out</small>
+            <small class='text-secondary'>log out</small>
           </b-button>
         </div>
         <div class="col-md-8 animate">

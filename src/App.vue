@@ -1,5 +1,10 @@
 <template>
-  <div id="app">
+  <div isdd="app">
+
+    <!-- absolute div to hold three.js animation -->
+    <div class='threejs w-0 h-0'></div>
+
+
 
     <b-alert class='text-right text-ligth w-100' :show="showAlert" variant="success" @dismissed="showAlert = false" dismissible>
       {{alertMessage}}
@@ -13,6 +18,7 @@
       spinner-type="grow"
       spinner-small
       rounded="sm"
+      bg-color='transparent'
       >
         <b-row class='h-100'>
           <b-col cols='12' v-if='isLogged' align-self='stretch'>
@@ -25,6 +31,7 @@
             <b-col cols='12' align-self="stretch"  v-else>
               <section class='loginSession h-100'>
                 <b-row class='h-100'>
+
                   <b-col align-self='stretch' v-if="newUserPage">
                     <NewUser
                     @login="handleLogin"
@@ -42,7 +49,7 @@
                 </b-row>
               </section>
             </b-col>
-            <b-col cols='12' align-self='stretch' class='vh-75'>
+            <b-col cols='12' align-self='stretch' class='footerWrapper'>
               <Footer />
             </b-col>
           </b-row>
@@ -61,6 +68,7 @@
   import Login from './components/login.vue'
   import NewUser from './components/newUser'
   import "animate.css/source/animate.css";
+  import {init} from './assets/threejs/index.js'
 
   const application = {
     name: 'App',
@@ -123,6 +131,9 @@
       this.isLoading = true
 
       try{
+        const el = document.querySelector('.threejs')
+        console.log(el)
+        init(el)
 
         const axios = require('axios').default
 
@@ -192,5 +203,9 @@
   @import "./assets/styles/global.css"; 
   .overlay{
     height: 100%;
+    z-index:2;
+  }
+  .footerWrapper{
+    width:100% !important;
   }
 </style>

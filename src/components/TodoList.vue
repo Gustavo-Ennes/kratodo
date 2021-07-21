@@ -1,7 +1,9 @@
 <template>
-    <div class="border p-2" id='tooltipWrapper'>
+    <div class="border p-2" id='tooltipWrapper' v-if='todos.length > 0'>
         <h2 class='mb-2'>{{this.title}}</h2> 
         <div class="if-wrapper" v-if='canDrag'>
+
+            <!-- if draggable todo -->
             <draggable @change="handleChange" :list='todos' v-if='todos.length > 0'>       
                 <div v-for="item in todos" :key="item._id">
                     <Todo 
@@ -15,9 +17,6 @@
                     />
                 </div>
             </draggable>
-            <div v-else>
-                <small> There's nothing in {{ this.title }}.</small>
-            </div>
         </div>
         <div class='if-wrapper' v-else>
             <div v-if='todos.length > 0'>       
@@ -32,9 +31,6 @@
                         @markAsDone='markAsDone' 
                     />
                 </div>
-            </div>
-            <div v-else>
-                <small> There's nothing in {{ this.title }}.</small>
             </div>
 
         </div>

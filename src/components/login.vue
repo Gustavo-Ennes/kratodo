@@ -8,7 +8,11 @@
           </b-alert>
         </b-col>
         <b-col cols='12' class='titleFont text-center'>
-          <h1 class='display-4 my-5 loginTitle'>KRA-TODO</h1>
+          <h1 class='display-4 my-5 siteTitle'>
+            KRA-TODO<br/>
+            <small class='subtitle'> A simple app to handle your tasks</small>
+
+          </h1>
         </b-col>
         <b-col cols='12' align-self="center">
           <section class='login m-3'>
@@ -25,6 +29,7 @@
                 spinner-type="grow"
                 spinner-small
                 rounded="sm"
+                bg-color="transparent"
               >
                 <b-btn variant='dark' @click='submit' :disabled='!isValidated'>Log In</b-btn>
               </b-overlay>
@@ -39,7 +44,7 @@
 
 <script>
 
-const axios = require('axios').default
+const axios = require('axios')
 const Animate = require('../utils/animate')
 
 export default {
@@ -100,13 +105,34 @@ export default {
       }finally{
         this.loading = false
       }      
+    },
+    addEventListerners(){
+      const inputMail = document.querySelector('#inputMail')
+      const inputPass = document.querySelector("#inputPass")
+
+      inputMail.addEventListener('keyup', (e) =>{
+        if(e.code === 'Enter'){
+          if(this.isValidated){
+            this.submit()
+          }
+        }
+      })
+      inputPass.addEventListener('keyup', (e) =>{
+        if(e.code === 'Enter'){
+          if(this.isValidated){
+            this.submit()
+          }
+        }
+      })
     }
   },
   async mounted(){    
-    await Animate('.loginTitle', 'zoomInDown', '2', '0.2')
+    await Animate('.siteTitle', 'zoomInDown', '2', '0.2')
     await Animate('.login', 'flipInX', '2.2', '1.2')
     const m = document.querySelector('.main')
     m.style.setProperty('min-height', window.innerHeight)
+
+    this.addEventListerners()
   }
 }
 </script>
@@ -125,9 +151,6 @@ export default {
     color: #72BC5C ;
   }
   .wrapper{
-    background: #72BC5C url(https://ksr-ugc.imgix.net/assets/017/754/999/d9bc3790556b7bae2c0352834c0f5b44_original.jpg?crop=faces&w=1552&h=873&fit=crop&v=1501706488&auto=format&q=92&s=3513fde78d45acbc5a1b8843ae10e9d1) center no-repeat;
-    object-fit: cover;
-    position:relative;
     background-size: 100% 100%;
     height: 100%;
     margin-bottom: 0;
@@ -142,6 +165,10 @@ export default {
 
   .login{
     margin-top:30%;
+  }
+
+  .subtitle{
+    font-size: 3vw;
   }
 
 </style>

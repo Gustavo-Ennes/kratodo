@@ -7,20 +7,21 @@
                 <div class="row">
                     <div class="form-group col-12">
                         <label htmlFor="title">Title</label>
-                        <input type="text" class="form-control" v-model="title" name="title" id="title" aria-describedby="emailHelp" placeholder="Todo title" />
+                        <input type="text" class="form-control" v-model="title" name="title" id="title" aria-describedby="emailHelp" placeholder="Todo title" autocomplete="false"/>
                     </div>
                     <div class="form-group col-12">
                         <label htmlFor="description">Description</label>
-                        <textarea type="textArea" class="form-control" v-model="description" name="description" id="description" placeholder="Anything you want about this todo...." rows=2></textarea>
+                        <textarea type="textArea" class="form-control" v-model="description" name="description" id="description" placeholder="Anything you want about this todo...." rows=2 autocomplete="false"></textarea>
                     </div>
                 </div>
                 <input type="hidden" v-model="status" name="status" id="status" />
                 
-                <button type="button" @click="createTodo" class="btn btn-success text-warning">
+                <button type="button" @click="createTodo" class="btn btn-success text-light">
                   <b-overlay
                   id="overlay-background"
                   :show='isLoading'
                   rounded="sm"
+                  bg-color="transparent"
                   > 
                   Create
                   </b-overlay>

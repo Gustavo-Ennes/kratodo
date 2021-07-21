@@ -9,24 +9,29 @@
 
       </b-col>
       <b-col cols='12' class='titleFont text-center'>
-        <h1 class='display-3 my-5 newUserTitle text-light'>new user</h1>
+        <h1 class='display-3 siteTitle'>
+          New user
+          <br/>
+          <small class='subtitle'>One second to manage your task queue</small>
+        </h1>
       </b-col>
       <b-col cols='12'>
         <section class='m-3 newUser'>
           <form :class="{'w-100': isMobile}" class='text-light display-board border-effect mx-auto text-center main w-50 p-4'>
             <label for='formName' class='text-light'>Your name</label>
-            <b-input id='formName' v-model='name' type='text' class='form-control mb-3' placeholder="your name" />
+            <b-input id='formName' v-model='name' type='text' class='form-control mb-1' placeholder="your name" />
             <label for='formMail' class='text-light'>Your e-mail</label>
             <b-input id='formMail' v-model='email' type='text' class='form-control' placeholder="e-mail" />
             <label for='formPass' class='mt-3 text-light'>Password</label>
             <b-input id='formPass' v-model='password1' type='password' class='form-control text-warning' placeholder='Password' />
-            <b-input v-model='password2' type='password' class='form-control mt-2 mb-4 text-warning' placeholder='Type password one more time'/>
+            <b-input v-model='password2' type='password' class='form-control my-2 text-warning' placeholder='Type password one more time'/>
             <b-overlay
               :show="loading"
               spinner-variant="warning"
               spinner-type="grow"
               spinner-small
               rounded="sm"
+              bg-color='transparent'
             >
               <b-row>
                 <b-col cols='6'>
@@ -89,7 +94,8 @@ export default {
     async submit(){
       this.loading = true
 
-      const axios = require('axios')
+      const axios = require('axios').default
+
       require('dotenv').config()
 
       if(this.isValidated){
@@ -137,7 +143,7 @@ export default {
     }
   },
   async mounted(){
-    await Animate('.newUserTitle', 'zoomInDown', '2', '0.2')
+    await Animate('.siteTitle', 'zoomInDown', '2', '0.2')
     await Animate('.newUser', 'flipInX', '2.2', '1.2')
   }
 
@@ -147,19 +153,17 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
-  .main{
-    margin-top: 10%;
-    margin-bottom: 20%;
+
+  .overlay{
+    background-color: transparent !important;
   }
+
   .titleFont{
     font-family: 'Fredoka One', cursive;
     text-shadow: 6px 6px 3px rgba(0, 0, 0, 0.3);
     color: #fff;
   }
   .wrapper{
-    background: #ddd url(https://ksr-ugc.imgix.net/assets/017/754/999/d9bc3790556b7bae2c0352834c0f5b44_original.jpg?crop=faces&w=1552&h=873&fit=crop&v=1501706488&auto=format&q=92&s=3513fde78d45acbc5a1b8843ae10e9d1) center no-repeat;
-    background-position: cover;
-    background-size: 100% 100%;
     height: 100% !important;
     width: 100% !important;
     margin-bottom: 0px !important;
@@ -172,4 +176,7 @@ export default {
     color:#eee !important;
   }
 
+  .subtitle{
+    font-size: 3vw;
+  }
 </style>
