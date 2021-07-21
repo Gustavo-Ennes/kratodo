@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VueAxios from 'vue-axios'
+  import VueAxios from 'vue-axios'
 import App from './App.vue'
 import { BootstrapVue } from 'bootstrap-vue'
 import vueMeta from 'vue-meta'

@@ -22,6 +22,12 @@
                     <div class='col'>
                         <img class='footerImg'  src="https://cdn.iconscout.com/icon/free/png-64/express-8-1175029.png" alt="express.js">
                     </div>
+                    <div class='col'>
+                        <h3 class='my-auto'>THREE.js</h3>
+                    </div>
+                    <div class='col'>
+                        <h3 class='my-auto'>TWEEN.js</h3>
+                    </div>  
                 </div>
             </div>
             <small class='textBrand mt-5 mb-0'>&copy; ENNESDEV 2021</small>

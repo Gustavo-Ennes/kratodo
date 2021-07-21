@@ -1,5 +1,5 @@
 <template>
-    <div class='todo-wrapper'>
+    <div class='todo-wrapper p-2'>
         <b-overlay
         id="overlay-background"
         :show='isLoading'

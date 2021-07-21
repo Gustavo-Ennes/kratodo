@@ -245,6 +245,7 @@ export default {
     await this.fetchTodos();
 
     onWindowResize()
+    console.log(document.body.offsetHeight)
   }
 }
 </script>
