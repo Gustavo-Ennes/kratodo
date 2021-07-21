@@ -240,11 +240,11 @@ export default {
   async mounted(){
     const Animate = require('../utils/animate');
 
-    onWindowResize()
-
     await Animate('.animate', 'bounceInUp', '0.5', '.2', true)
 
     await this.fetchTodos();
+
+    onWindowResize()
   }
 }
 </script>
