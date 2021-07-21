@@ -62,7 +62,9 @@ import Header from './Header.vue'
 import CreateTodo from './CreateTodo.vue'
 import DisplayBoard from './DisplayBoard.vue'
 import TodoList from './TodoList.vue'
+import {onWindowResize} from '../assets/threejs/index.js';
 const axios = require('axios').default
+
 
 export default {
   name: 'Dashboard',
@@ -237,6 +239,8 @@ export default {
   },
   async mounted(){
     const Animate = require('../utils/animate');
+
+    onWindowResize()
 
     await Animate('.animate', 'bounceInUp', '0.5', '.2', true)
 

@@ -1,6 +1,6 @@
 <template>
-    <div class='footer mt-0'>
-        <div class="row justify-content-center align-items-bottom">
+    <div class='footer'>
+        <div class="row justify-content-center align-items-end">
             <div class='col-6'>
                 <div class='row justify-content-center align-items-between'>
                     <h4 class='col-12 mb-3'>Useful resources:</h4>

@@ -80,21 +80,21 @@ const addLight = () => {
   
 }
 export const onWindowResize = () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.aspect = window.innerWidth / document.body.offsetHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize( window.innerWidth, window.innerHeight);
+  renderer.setSize( window.innerWidth, document.body.offsetHeight);
 
 }
 
 export const init = (canvas) => {
   scene = new THREE.Scene();
   // scene.background = new THREE.Color(0xd2d2d2)
-  camera = new THREE.PerspectiveCamera( 75, document.body.offsetWidth / document.body.offsetHeight, 1, 10000 );
+  camera = new THREE.PerspectiveCamera( 75, window.innerWidth / document.body.offsetHeight, 1, 10000 );
   camera.lookAt(new THREE.Vector3(0, 0, 0))
   camera.position.set(0, 0, 85)
 
   renderer = new THREE.WebGLRenderer({antialias: true});
-  renderer.setSize( document.body.offsetWidth , document.body.offsetHeight );
+  renderer.setSize( window.innerWidth , document.body.offsetHeight );
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.shadowMap.enabled = true;
   canvas.appendChild(renderer.domElement)

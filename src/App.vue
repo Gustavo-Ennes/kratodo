@@ -1,5 +1,5 @@
 <template>
-  <div class='position-relative'>
+  <div class='position-relative h-100'>
 
     <!-- absolute div to hold three.js animation -->
     <div class='threejs'></div>
@@ -20,7 +20,7 @@
       rounded="sm"
       bg-color='transparent'
       >
-        <b-row>
+        <b-row class=''>
           <b-col cols='12' v-if='isLogged' align-self='stretch'>
             <Dashboard 
             :url="'https://api.ennes.dev/kratodo'"
@@ -68,7 +68,7 @@
   import Login from './components/login.vue'
   import NewUser from './components/newUser'
   import "animate.css/source/animate.css";
-  import {init} from './assets/threejs/index.js'
+  import {init, onWindowResize} from './assets/threejs/index.js'
 
   const application = {
     name: 'App',
@@ -125,6 +125,7 @@
         this.password = ''
         
         await axios({url:'/logout/', method: 'get'})
+        onWindowResize()
       },
     },
     async mounted(){            
