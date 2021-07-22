@@ -1,5 +1,5 @@
 <template>
-  <div class='wrapper vh-100'>
+  <div class='wrapper'>
     <div>
       <b-row align-h='center' align-v='center'>
         <b-col cols='12'>
@@ -16,7 +16,7 @@
         </b-col>
         <b-col cols='12' align-self="center">
           <section class='login m-3'>
-            <form :class="{'w-100': isMobile}" class='display-board border-effect mx-auto  my-auto text-center main w-50 p-4'>
+            <form :class="{'w-100': isMobile}" class='display-board border-effect mx-auto my-auto text-center main w-50 p-4'>
 
               <label for="inputMail" class='text-light'>E-mail</label>
               <b-input id='inputMail' :trim='true' v-model='email' :type="'text'" :placeholder="'e-mail'" :autocomplete="'off'"></b-input>

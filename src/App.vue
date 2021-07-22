@@ -20,7 +20,7 @@
       rounded="sm"
       bg-color='transparent'
       >
-        <b-row class=''>
+        <b-row>
           <b-col cols='12' v-if='isLogged' align-self='stretch'>
             <Dashboard 
             :url="'https://api.ennes.dev/kratodo'"
@@ -29,8 +29,8 @@
             />
             </b-col>
             <b-col cols='12' align-self="stretch"  v-else>
-              <section class='loginSession h-100'>
-                <b-row class='h-100'>
+              <section class='loginSession'>
+                <b-row>
 
                   <b-col align-self='stretch' v-if="newUserPage">
                     <NewUser

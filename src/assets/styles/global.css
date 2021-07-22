@@ -63,7 +63,6 @@ body, #app, main{
  
  .footer {
     padding: 2%;
-    position:relative;
     font-size: 15px;
     text-align: center;
     width: 100% !important;
@@ -112,6 +111,6 @@ h2, label, th{
 
 .loginSession{
   position:relative;
-  z-index:1;
+  z-index:2;
   min-height: 100vh
 }

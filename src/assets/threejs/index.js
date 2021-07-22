@@ -80,9 +80,9 @@ const addLight = () => {
   
 }
 export const onWindowResize = () => {
-  camera.aspect = window.innerWidth / document.body.offsetHeight;
+  camera.aspect = document.body.offsetWidth / document.body.offsetHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize( window.innerWidth, document.body.offsetHeight);
+  renderer.setSize( document.body.offsetWidth, document.body.offsetHeight);
 
 }
 
